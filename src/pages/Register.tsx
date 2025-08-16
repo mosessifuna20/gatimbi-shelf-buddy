@@ -22,18 +22,43 @@ const Register = () => {
     guardianPhone: "",
     guardianEmail: "",
     guardianId: "",
-    school: ""
+    school: "",
+    customSchool: ""
   });
 
   const centralImentiSchools = [
+    // Primary Schools
     "Gatimbi Primary School",
+    "St. Joseph's Primary School",
+    "Kiirua Primary School",
+    "Kianjai Primary School",
+    "Mitunguu Primary School",
+    "Kiegoi Primary School",
+    "Nkubu Primary School",
+    "Timau Primary School",
+    
+    // Secondary Schools  
     "Central Imenti Secondary School",
     "Meru High School",
-    "St. Joseph's Primary School",
     "Blessed Sacrament Girls",
+    "Kianjai Secondary School",
+    "Mitunguu Secondary School",
+    "Nkubu Secondary School",
+    "St. Francis Kiegoi Secondary",
+    "Timau Secondary School",
+    
+    // Colleges & Universities
     "Meru Teachers College",
     "Kenya Methodist University",
-    "Private Academy Central Imenti"
+    "Meru University of Science & Technology",
+    "Chuka University - Meru Campus",
+    
+    // Private Schools
+    "Private Academy Central Imenti",
+    "St. Augustine Academy",
+    "Precious Blood Academy",
+    "Mount Kenya Academy",
+    "Other (Please specify)"
   ];
 
   const handleSubmit = (e: React.FormEvent) => {
@@ -165,6 +190,19 @@ const Register = () => {
                         </SelectContent>
                       </Select>
                     </div>
+
+                    {formData.school === "Other (Please specify)" && (
+                      <div className="space-y-2">
+                        <Label htmlFor="customSchool">Specify Your School *</Label>
+                        <Input
+                          id="customSchool"
+                          placeholder="Enter your school name"
+                          value={formData.customSchool}
+                          onChange={(e) => setFormData({ ...formData, customSchool: e.target.value })}
+                          required
+                        />
+                      </div>
+                    )}
 
                     {/* Guardian Details */}
                     <div className="border-t pt-4 mt-6">

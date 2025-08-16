@@ -90,11 +90,17 @@ const Login = () => {
               </div>
             </form>
             
-            <div className="mt-6 text-center">
+            <div className="mt-6 space-y-2 text-center">
               <p className="text-sm text-muted-foreground">
                 Don't have an account?{" "}
                 <Link to="/register" className="text-primary hover:underline font-medium">
                   Register here
+                </Link>
+              </p>
+              <p className="text-sm text-muted-foreground">
+                Need test credentials?{" "}
+                <Link to="/default-logins" className="text-primary hover:underline font-medium">
+                  View default logins
                 </Link>
               </p>
             </div>
