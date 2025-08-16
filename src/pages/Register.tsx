@@ -93,30 +93,34 @@ const Register = () => {
                     />
                   </div>
                   
-                  <div className="space-y-2">
-                    <Label htmlFor="email">Email *</Label>
-                    <Input
-                      id="email"
-                      type="email"
-                      placeholder="Enter email address"
-                      value={formData.email}
-                      onChange={(e) => setFormData({ ...formData, email: e.target.value })}
-                      required
-                    />
-                  </div>
+                  {userType === "adult" && (
+                    <div className="space-y-2">
+                      <Label htmlFor="email">Email *</Label>
+                      <Input
+                        id="email"
+                        type="email"
+                        placeholder="Enter email address"
+                        value={formData.email}
+                        onChange={(e) => setFormData({ ...formData, email: e.target.value })}
+                        required
+                      />
+                    </div>
+                  )}
                 </div>
 
                 <div className="grid md:grid-cols-2 gap-4">
-                  <div className="space-y-2">
-                    <Label htmlFor="phone">Phone Number *</Label>
-                    <Input
-                      id="phone"
-                      placeholder="+254 700 000000"
-                      value={formData.phone}
-                      onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
-                      required
-                    />
-                  </div>
+                  {userType === "adult" && (
+                    <div className="space-y-2">
+                      <Label htmlFor="phone">Phone Number *</Label>
+                      <Input
+                        id="phone"
+                        placeholder="+254 700 000000"
+                        value={formData.phone}
+                        onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
+                        required
+                      />
+                    </div>
+                  )}
 
                   {userType === "adult" ? (
                     <div className="space-y-2">
@@ -192,13 +196,14 @@ const Register = () => {
 
                       <div className="grid md:grid-cols-2 gap-4 mt-4">
                         <div className="space-y-2">
-                          <Label htmlFor="guardianEmail">Guardian Email</Label>
+                          <Label htmlFor="guardianEmail">Guardian Email *</Label>
                           <Input
                             id="guardianEmail"
                             type="email"
-                            placeholder="Enter guardian email (optional)"
+                            placeholder="Enter guardian email"
                             value={formData.guardianEmail}
                             onChange={(e) => setFormData({ ...formData, guardianEmail: e.target.value })}
+                            required
                           />
                         </div>
                         
